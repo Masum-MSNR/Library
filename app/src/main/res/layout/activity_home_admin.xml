@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".Activities.Home_Admin">
@@ -13,9 +14,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
+        android:fontFamily="@font/exo"
         android:text="Admin"
         android:textColor="#000"
-        android:textSize="20sp" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/addNewBook"
@@ -23,15 +25,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/buttonbg"
+        android:padding="7dp"
         android:text="Add New Book"
-        android:textColor="#000"
-        android:textSize="20sp" />
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <SearchView
         android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
+        android:background="@drawable/buttonbg1"
         android:iconifiedByDefault="false"
         android:queryHint="Search" />
 

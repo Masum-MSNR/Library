@@ -1,6 +1,5 @@
 package com.project.library.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,12 +34,17 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+
+        //EditText
         fullName = findViewById(R.id.fullName);
         userName = findViewById(R.id.userName);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
+        //RadioGroup
         radioGroup = findViewById(R.id.radioGroup);
+        //RadioButton
         radioButton = findViewById(R.id.radioButton2);
+        //Button
         signUp = findViewById(R.id.signUpButton);
 
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +79,7 @@ public class SignUp extends AppCompatActivity {
                                     DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("Students");
                                     database.push().setValue(student);
                                     xx = false;
-                                    startActivity(new Intent(SignUp.this, Home_Student.class));
+                                    Toast.makeText(SignUp.this, "Id Created Successfully", Toast.LENGTH_SHORT).show();
                                     SignUp.this.finish();
                                 }
                             }
@@ -115,8 +119,8 @@ public class SignUp extends AppCompatActivity {
                                     DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("Admins");
                                     database.push().setValue(admin);
 
-                                    xx=false;
-                                    startActivity(new Intent(SignUp.this, Home_Admin.class));
+                                    xx = false;
+                                    Toast.makeText(SignUp.this, "Id Created Successfully", Toast.LENGTH_SHORT).show();
                                     SignUp.this.finish();
                                 }
                             }
@@ -137,6 +141,5 @@ public class SignUp extends AppCompatActivity {
     public void radioButtonClicked(View view) {
         int radioId = radioGroup.getCheckedRadioButtonId();
         radioButton = findViewById(radioId);
-        //hideKeyBoard();
     }
 }

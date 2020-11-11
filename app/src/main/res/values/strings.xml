@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Library</string>
-    <string name="login"><u>Login</u></string>
-    <string name="signup"><u>SignUp</u></string>
+    <string name="login"><u>LOGIN</u></string>
+    <string name="signup"><u>SIGNUP</u></string>
+    <string name="add_new_book"><u>Add New Book</u></string>
+    <string name="borrowed_book"><u>Borrowed Book</u></string>
+    <string name="borrow_now"><u>Borrow Now</u></string>
+    <string name="delete_book"><u>Delete Book</u></string>
 </resources>

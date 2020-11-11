@@ -29,18 +29,22 @@ public class Login extends AppCompatActivity {
     RadioButton radioButton;
     Button login;
     TextView signUp;
-    boolean xx = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //EditText
         userName = findViewById(R.id.userName);
         password = findViewById(R.id.password);
+        //RadioGroup
         radioGroup = findViewById(R.id.radioGroup);
+        //RadioButton
         radioButton = findViewById(R.id.radioButton2);
+        //Button
         login = findViewById(R.id.loginButton);
+        //TextView
         signUp = findViewById(R.id.signUp);
 
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +60,6 @@ public class Login extends AppCompatActivity {
                 String accountType = radioButton.getText().toString();
                 if (accountType.equals("Student")) {
                     Query query1 = FirebaseDatabase.getInstance().getReference("Students").orderByChild("userName").equalTo(userName.getText().toString());
-
                     query1.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -64,7 +67,7 @@ public class Login extends AppCompatActivity {
                                 Student obj = snap.getValue(Student.class);
                                 String password1 = obj.getPassword();
                                 if (password1.equals(password.getText().toString())) {
-                                    String name = obj.getName();
+                                    String name = obj.getUserName();
                                     Intent intent = new Intent(Login.this, Home_Student.class);
                                     intent.putExtra("name", name);
                                     startActivity(intent);
@@ -93,7 +96,7 @@ public class Login extends AppCompatActivity {
                                 Admin obj = snap.getValue(Admin.class);
                                 String password1 = obj.getPassword();
                                 if (password1.equals(password.getText().toString())) {
-                                    String name = obj.getName();
+                                    String name = obj.getUserName();
                                     Intent intent = new Intent(Login.this, Home_Admin.class);
                                     intent.putExtra("name", name);
                                     startActivity(intent);
@@ -122,6 +125,5 @@ public class Login extends AppCompatActivity {
     public void radioButtonClicked(View view) {
         int radioId = radioGroup.getCheckedRadioButtonId();
         radioButton = findViewById(radioId);
-        //hideKeyBoard();
     }
 }

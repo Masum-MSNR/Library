@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".Activities.AddBook">
@@ -12,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
-        android:text="Add New Book"
+        android:fontFamily="@font/exo"
+        android:text="@string/add_new_book"
         android:textColor="#000"
         android:textSize="35sp"
         android:textStyle="bold" />
@@ -23,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:hint="Enter Book Name"
+        android:inputType="text"
         android:textColor="#000" />
 
     <EditText
@@ -31,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:hint="Name of The Writer"
+        android:inputType="text"
         android:textColor="#000" />
 
     <EditText
@@ -39,13 +43,16 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:hint="No of Page"
+        android:inputType="number"
         android:textColor="#000" />
 
     <Button
         android:id="@+id/addNow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Now" />
+        android:background="@drawable/ripplebg"
+        android:text="Add Now"
+        android:textColor="#fff" />
 
 
 </LinearLayout>

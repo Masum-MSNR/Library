@@ -44,13 +44,15 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/borrowNow"
+                android:id="@+id/deleteBook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center"
-                android:text="@string/borrow_now" />
+                android:text="@string/delete_book" />
         </RelativeLayout>
 
 

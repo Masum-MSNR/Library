@@ -8,16 +8,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.project.library.ModelClass.Book;
+import com.project.library.ModelClass.BorrowBook;
 import com.project.library.R;
 
 import java.util.ArrayList;
 
 public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> {
 
+    String userName;
     ArrayList<Book> list;
 
-    public BooksAdapter(ArrayList<Book> list) {
+    public BooksAdapter(String userName, ArrayList<Book> list) {
+        this.userName = userName;
         this.list = list;
     }
 
@@ -29,9 +34,17 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.bookName.setText(list.get(position).getName());
         holder.writerName.setText(list.get(position).getWriterName());
+        holder.borrowNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("StudentsBooksList");
+                BorrowBook item=new BorrowBook(list.get(position).getName(),list.get(position).getWriterName());
+                databaseReference.child(userName).setValue(item);
+            }
+        });
     }
 
     @Override
