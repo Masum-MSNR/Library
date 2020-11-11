@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Library</string>
+    <string name="login"><u>Login</u></string>
+    <string name="signup"><u>SignUp</u></string>
+</resources>
